@@ -8,12 +8,13 @@ from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration
 import launch_ros.actions
 
-from nav2_common.launch import Node
+#from nav2_common.launch import Node
+from launch_ros.actions import Node
 
 
 def generate_launch_description():
     # Get the launch directory
-    nav2_yaml = os.path.join(get_package_share_directory('nav2_course'), 'config', 'nav2.yaml')
+    nav2_yaml = os.path.join(get_package_share_directory('nav2_course'), 'config', 'nav2_params.yaml')
     rviz_config_dir = os.path.join(get_package_share_directory('nav2_course'), 'config', 'nav2_default_view.rviz')
     map_file = os.path.join(get_package_share_directory('nav2_course'), 'config', 'turtlebot3_world.yaml')
     bt_xml_path = os.path.join(get_package_share_directory('nav2_course'), 'config', 'navigate_w_replanning_and_recovery.xml')
@@ -66,7 +67,7 @@ def generate_launch_description():
             node_executable='bt_navigator',
             node_name='bt_navigator',
             output='screen',
-            parameters=[nav2_yaml, {'bt_xml_filename': bt_xml_path}]),
+            parameters=[nav2_yaml, {'default_bt_xml_filename': bt_xml_path}]),
 
         Node(
             package='nav2_lifecycle_manager',
