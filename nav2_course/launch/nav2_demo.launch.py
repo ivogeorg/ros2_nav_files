@@ -30,6 +30,7 @@ def generate_launch_description():
     # Get the launch directory
     bringup_dir = get_package_share_directory('nav2_bringup')
     launch_dir = os.path.join(bringup_dir, 'launch')
+    map_dir = get_package_share_directory('nav2_course')
 
     # Create the launch configuration variables
     slam = LaunchConfiguration('slam')
@@ -76,7 +77,7 @@ def generate_launch_description():
 
     declare_map_yaml_cmd = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(bringup_dir, 'maps', 'turtlebot3_world.yaml'),
+        default_value=os.path.join(map_dir, 'maps', 'turtlebot_area.yaml'),
         description='Full path to map file to load')
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
