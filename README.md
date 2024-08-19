@@ -31,6 +31,6 @@ source install/setup.bash
 
 #### Nav2 architecture
 
-![Nav2](assets/nav2_architectureal_diagram.png)  
+![Nav2](assets/nav2_architectural_diagram.png)  
 
 
